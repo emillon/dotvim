@@ -20,6 +20,8 @@ set directory=~/.vim/swap
 set ignorecase
 set smartcase
 
+call pathogen#infect()
+
 "" <Leader> is ,
 
 let mapleader=","
