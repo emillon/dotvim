@@ -13,6 +13,8 @@ set tw=80
 set mouse=a
 set softtabstop=2
 set shiftwidth=2
+set title
+set modeline
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
@@ -22,16 +24,18 @@ set smartcase
 
 call pathogen#infect()
 
-"" <Leader> is ,
-
+" General key bindings {{{
 let mapleader=","
-
-"" open file in same directory as current file
+map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
+map <F3> :source ~/.vim_session <cr>     " And load session with F3
+nmap <F12> :set paste!<CR>
+"}}}
+" Open file in same directory as current file {{{
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-
-"" i dont like arrows
+" }}}
+" Nops (arrows etc) {{{
 
 imap <c-up>     <Nop>
 imap <c-down>   <Nop>
@@ -72,17 +76,20 @@ imap <c-pagedown>   <nop>
 map  <c-pageup>     <nop>
 map  <c-pagedown>   <nop>
 
-"" K is useless...
-"map K <nop>
-
-"" and so is F1
+map K <nop>
 map <F1> <nop>
+" }}}
+" Unicode abbreviations {{{
 
-"" Vala stuff
-autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala            setfiletype vala
-au BufRead,BufNewFile *.vapi            setfiletype vala
+ab µforall ∀
+ab µ~> ↝
+ab µts ⊢
+ab µtrans ⇥
+ab µsq □
+ab µem —
+ab µnotin ∉
+
+"}}}
 
 "" hide objects in netrw view
 
@@ -92,54 +99,54 @@ let g:netrw_sort_sequence= '[\/]$,*,\.ml,\.mli,\.bak$,\.o$,\.h$,\.info$,\.swp$,\
 
 set wildignore=*.o,*.cmx,*.cmo,*.cmi
 
-set title
-set modeline
 
 let g:user_zen_settings = {'mkd' : { 'extends' : 'html' }, 'mdwn' : { 'extends' : 'html' } }
 
-:ab µforall ∀
 
-:ab µ~> ↝
-:ab µts ⊢
+" Vala {{{
+autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala            setfiletype vala
+au BufRead,BufNewFile *.vapi            setfiletype vala
+" }}}
+" Markdown {{{
 
-:ab µtrans ⇥
-
-:ab µsq □
-
-:ab µem —
-
-:ab µnotin ∉
-
-"highlight EndSpaces ctermbg=green guibg=green
-"match EndSpaces /\s\+$/
+autocmd BufEnter *.mdwn set filetype=pdc
 
 map <leader>p :!pandoc -t latex<CR>
-
 map <leader>h1 yypVr=o<CR><Esc>
 map <leader>h2 yypVr-o<CR><Esc>
+
+" b.d.o mdwn link
+map <leader>bdo yawi[$a](http://bugs.debian.org/pa)
+
+"}}}
+" Python {{{
+au BufRead,BufNewFile *.py     set sw=4
+au BufRead,BufNewFile *.py     set sts=4
+
+autocmd FileType python compiler pylint
+let g:pylint_onwrite = 0
+"}}}
+" C {{{
+au BufRead,BufNewFile *.c set sw=4
+au BufRead,BufNewFile *.c set sts=4
+"}}}
+" Misc. languages {{{
+au BufRead,BufNewFile *.mail setfiletype mail
+au BufRead,BufNewFile *.asm set syntax=nasm
+au BufRead,BufNewFile *.mako  setfiletype mako
+"}}}
 
 " Source the vimrc file after saving it
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-autocmd BufEnter *.mdwn set filetype=pdc
-
 set laststatus=2
 set statusline=%t\ %y\ [%l,%c]\ [%p%%]\ %{fugitive#statusline()}
 
-" b.d.o mdwn link
-map <leader>bdo yawi[$a](http://bugs.debian.org/pa)
 
-au BufRead,BufNewFile *.mako            setfiletype mako
-
-" Python
-
-au BufRead,BufNewFile *.py     set sw=4
-au BufRead,BufNewFile *.py     set sts=4
-
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
 
 " list
 
@@ -149,21 +156,18 @@ nmap <leader>l :set list!<CR>
 " unicode separator
 set fillchars=vert:│
 
+set showbreak=↪
+
 " unicode box
 
 nmap <leader>box VypVr═yykkpI╔ji║ji╚kk$a╗ja║ja╝^j
 nmap <leader>sbox VypVr─yykkpI╭ji│ji╰kk$a╮ja│ja╯^j
 
-nmap <F12> :set paste!<CR>
-
-map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
-map <F3> :source ~/.vim_session <cr>     " And load session with F3
-
-set showbreak=↪
 
 set hls
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" Status line with mode indicator {{{
 " http://www.reddit.com/r/vim/comments/gexi6/
 hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
 hi Modified guibg=orange guifg=black ctermbg=lightred ctermfg=black
@@ -205,20 +209,17 @@ endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
-" /status
+"}}}
 
 set virtualedit+=block
 
-au BufRead,BufNewFile *.c     set sw=4
-au BufRead,BufNewFile *.c     set sts=4
 
+" Folding {{{
+set foldmethod=marker
 nmap + zo
 nmap - zc
+"}}}
 
-au BufRead,BufNewFile *.mail setfiletype mail
 
-au BufRead,BufNewFile *.asm set syntax=nasm
-
-set foldmethod=marker
-
+" Print options
 set printoptions+=syntax:y,header:0
