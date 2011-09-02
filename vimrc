@@ -1,4 +1,3 @@
-set nocp
 colo molokai
 filetype plugin on
 filetype indent on
@@ -6,8 +5,6 @@ syntax enable
 set expandtab
 set autoindent
 set encoding=utf8
-"set cindent
-"set smartindent
 set smarttab
 set tw=80
 set mouse=a
@@ -19,11 +16,15 @@ set modeline
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
-set ignorecase
-set smartcase
-
 call pathogen#infect()
 
+" Search {{{
+set ignorecase
+set smartcase
+set hls
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+"}}}
+" Key bindings {{{
 " General key bindings {{{
 let mapleader=","
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
@@ -90,19 +91,8 @@ ab µem —
 ab µnotin ∉
 
 "}}}
-
-"" hide objects in netrw view
-
-let g:netrw_hide=1
-let g:netrw_list_hide='.*\.cm[iox]$,\.o$,\.swp,^.*\.pyc$'
-let g:netrw_sort_sequence= '[\/]$,*,\.ml,\.mli,\.bak$,\.o$,\.h$,\.info$,\.swp$,\.obj$'
-
-set wildignore=*.o,*.cmx,*.cmo,*.cmi
-
-
-let g:user_zen_settings = {'mkd' : { 'extends' : 'html' }, 'mdwn' : { 'extends' : 'html' } }
-
-
+"}}}
+" Language support {{{
 " Vala {{{
 autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
@@ -114,11 +104,8 @@ au BufRead,BufNewFile *.vapi            setfiletype vala
 autocmd BufEnter *.mdwn set filetype=pdc
 
 map <leader>p :!pandoc -t latex<CR>
-map <leader>h1 yypVr=o<CR><Esc>
-map <leader>h2 yypVr-o<CR><Esc>
 
-" b.d.o mdwn link
-map <leader>bdo yawi[$a](http://bugs.debian.org/pa)
+let g:user_zen_settings = {'mkd' : { 'extends' : 'html' }, 'mdwn' : { 'extends' : 'html' } }
 
 "}}}
 " Python {{{
@@ -137,36 +124,13 @@ au BufRead,BufNewFile *.mail setfiletype mail
 au BufRead,BufNewFile *.asm set syntax=nasm
 au BufRead,BufNewFile *.mako  setfiletype mako
 "}}}
-
-" Source the vimrc file after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-
+"}}}
+" Status line {{{
+" Always keep the title
 set laststatus=2
+
+" Git status
 set statusline=%t\ %y\ [%l,%c]\ [%p%%]\ %{fugitive#statusline()}
-
-
-
-" list
-
-set listchars=tab:▸\ ,eol:¬,trail:☠
-nmap <leader>l :set list!<CR>
-
-" unicode separator
-set fillchars=vert:│
-
-set showbreak=↪
-
-" unicode box
-
-nmap <leader>box VypVr═yykkpI╔ji║ji╚kk$a╗ja║ja╝^j
-nmap <leader>sbox VypVr─yykkpI╭ji│ji╰kk$a╮ja│ja╯^j
-
-
-set hls
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
 " Status line with mode indicator {{{
 " http://www.reddit.com/r/vim/comments/gexi6/
 hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
@@ -210,16 +174,50 @@ endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
 "}}}
-
-set virtualedit+=block
-
-
+"}}}
 " Folding {{{
 set foldmethod=marker
 nmap + zo
 nmap - zc
 "}}}
+" File navigation {{{
+"" Hide objects in netrw view
+let g:netrw_hide=1
+let g:netrw_list_hide='.*\.cm[iox]$,\.o$,\.swp,^.*\.pyc$'
+let g:netrw_sort_sequence= '[\/]$,*,\.ml,\.mli,\.bak$,\.o$,\.h$,\.info$,\.swp$,\.obj$'
 
+set wildignore=*.o,*.cmx,*.cmo,*.cmi
+" }}}
+" 'Long' shortcuts {{{
+
+" Unicode boxes
+nmap <leader>box VypVr═yykkpI╔ji║ji╚kk$a╗ja║ja╝^j
+nmap <leader>sbox VypVr─yykkpI╭ji│ji╰kk$a╮ja│ja╯^j
+
+" b.d.o mdwn link
+map <leader>bdo yawi[$a](http://bugs.debian.org/pa)
+
+map <leader>h1 yypVr=o<CR><Esc>
+map <leader>h2 yypVr-o<CR><Esc>
+
+" }}}
+
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+
+" <leader>l toggles non-printable characters
+set listchars=tab:▸\ ,eol:¬,trail:☠
+nmap <leader>l :set list!<CR>
+
+" Unicode separator
+set fillchars=vert:│
+set showbreak=↪
+
+set virtualedit+=block
 
 " Print options
 set printoptions+=syntax:y,header:0
