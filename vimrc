@@ -6,7 +6,7 @@ set expandtab
 set autoindent
 set encoding=utf8
 set smarttab
-set tw=80
+set textwidth=80
 set mouse=a
 set softtabstop=2
 set shiftwidth=2
@@ -21,7 +21,7 @@ call pathogen#infect()
 " Search {{{
 set ignorecase
 set smartcase
-set hls
+set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 "}}}
 " Key bindings {{{
