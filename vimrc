@@ -186,7 +186,9 @@ let g:netrw_hide=1
 let g:netrw_list_hide='.*\.cm[iox]$,\.o$,\.swp,^.*\.pyc$'
 let g:netrw_sort_sequence= '[\/]$,*,\.ml,\.mli,\.bak$,\.o$,\.h$,\.info$,\.swp$,\.obj$'
 
-set wildignore=*.o,*.cmx,*.cmo,*.cmi
+set wildignore=*.o
+set wildignore+=*.cmx,*.cmo,*.cmi
+set wildignore+=*.hi
 " }}}
 " 'Long' shortcuts {{{
 
