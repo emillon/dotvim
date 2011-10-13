@@ -183,7 +183,7 @@ nmap - zc
 " File navigation {{{
 "" Hide objects in netrw view
 let g:netrw_hide=1
-let g:netrw_list_hide='.*\.cm[iox]$,\.o$,\.swp,^.*\.pyc$'
+let g:netrw_list_hide='.*\.cm[iox]$,\.o$,\.swp,^.*\.pyc$,\.hi$'
 let g:netrw_sort_sequence= '[\/]$,*,\.ml,\.mli,\.bak$,\.o$,\.h$,\.info$,\.swp$,\.obj$'
 
 set wildignore=*.o
