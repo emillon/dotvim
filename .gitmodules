@@ -7,3 +7,6 @@
 [submodule "bundle/vimfootnotes"]
 	path = bundle/vimfootnotes
 	url = https://github.com/vim-scripts/VimFootnotes.git
+[submodule "bundle/vim-orgmode"]
+	path = bundle/vim-orgmode
+	url = git://github.com/jceb/vim-orgmode.git
