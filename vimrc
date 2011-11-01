@@ -13,6 +13,8 @@ set shiftwidth=2
 set title
 set modeline
 
+set guioptions=
+
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
