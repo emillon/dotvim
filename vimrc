@@ -2,6 +2,7 @@ filetype plugin on
 filetype indent on
 syntax enable
 call pathogen#infect()
+set background=dark
 colo molokai
 set expandtab
 set autoindent
