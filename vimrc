@@ -1,7 +1,8 @@
-colo molokai
 filetype plugin on
 filetype indent on
 syntax enable
+call pathogen#infect()
+colo molokai
 set expandtab
 set autoindent
 set encoding=utf8
@@ -18,7 +19,6 @@ set guioptions=
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
-call pathogen#infect()
 
 " Search {{{
 set ignorecase
