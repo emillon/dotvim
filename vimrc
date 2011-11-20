@@ -14,6 +14,7 @@ set softtabstop=2
 set shiftwidth=2
 set title
 set modeline
+set wildmenu
 
 set guioptions=
 
