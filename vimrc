@@ -118,9 +118,6 @@ let g:user_zen_settings = {'mkd' : { 'extends' : 'html' }, 'mdwn' : { 'extends' 
 " Python {{{
 au BufRead,BufNewFile *.py     set sw=4
 au BufRead,BufNewFile *.py     set sts=4
-
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
 "}}}
 " C {{{
 au BufRead,BufNewFile *.c set sw=4
