@@ -25,3 +25,6 @@
 [submodule "bundle/asciidoc"]
 	path = bundle/asciidoc
 	url = https://github.com/vim-scripts/asciidoc.vim.git
+[submodule "bundle/vimroom"]
+	path = bundle/vimroom
+	url = https://github.com/mikewest/vimroom.git
