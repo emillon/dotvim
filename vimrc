@@ -1,9 +1,18 @@
 filetype plugin on
 filetype indent on
 syntax enable
+
 call pathogen#infect()
+
+" Colors
 set background=dark
 colo molokai
+if g:colors_name == "molokai"
+  let g:vimroom_ctermbackground = 233
+  let g:vimroom_guibackground = 233
+endif
+
+" Indent, etc
 set expandtab
 set autoindent
 set encoding=utf8
