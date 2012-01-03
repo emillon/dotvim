@@ -30,6 +30,9 @@ set guioptions=
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
+if has('xterm_clipboard') && has('unnamedplus')
+  set clipboard=unnamed,unnamedplus,exclude:cons\|linux
+endif
 
 " Search {{{
 set ignorecase
