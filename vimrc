@@ -135,6 +135,9 @@ au BufRead,BufNewFile *.py     set sts=4
 au BufRead,BufNewFile *.c set sw=4
 au BufRead,BufNewFile *.c set sts=4
 "}}}
+" LaTeX {{{
+let g:tex_conceal='adgms'
+" }}}
 " Misc. languages {{{
 au BufRead,BufNewFile *.mail setfiletype mail
 au BufRead,BufNewFile *.asm set syntax=nasm
