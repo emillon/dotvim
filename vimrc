@@ -223,7 +223,10 @@ map <leader>h1 yypVr=o<CR><Esc>
 map <leader>h2 yypVr-o<CR><Esc>
 
 " }}}
-
+" Conceal {{{
+set conceallevel=2
+hi Conceal ctermbg=bg guibg=bg ctermfg=fg guibg=bg
+" }}}
 
 " Source the vimrc file after saving it
 if has("autocmd")
