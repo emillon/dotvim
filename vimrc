@@ -132,8 +132,11 @@ au BufRead,BufNewFile *.py     set sw=4
 au BufRead,BufNewFile *.py     set sts=4
 "}}}
 " C {{{
-au BufRead,BufNewFile *.c set sw=4
-au BufRead,BufNewFile *.c set sts=4
+au BufRead,BufNewFile *.c set sw=4 sts=4
+au BufRead,BufNewFile *.h set sw=4 sts=4
+"}}}
+" C++ {{{
+au BufRead,BufNewFile *.cpp set sw=4 sts=4
 "}}}
 " LaTeX {{{
 let g:tex_conceal='adgms'
