@@ -22,9 +22,6 @@
 [submodule "bundle/candycode"]
 	path = .vim/bundle/candycode
 	url = https://github.com/vim-scripts/candycode.vim.git
-[submodule "bundle/asciidoc"]
-	path = .vim/bundle/asciidoc
-	url = https://github.com/vim-scripts/asciidoc.vim.git
 [submodule "bundle/vimroom"]
 	path = .vim/bundle/vimroom
 	url = https://github.com/mikewest/vimroom.git
