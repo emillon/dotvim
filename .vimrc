@@ -249,3 +249,6 @@ set virtualedit+=block
 
 " Print options
 set printoptions+=syntax:y,header:0
+
+" Prevent accidental editing of patch .orig files
+autocmd BufRead *.orig set readonly
