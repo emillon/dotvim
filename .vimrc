@@ -228,7 +228,11 @@ map <leader>h2 yypVr-o<CR><Esc>
 " }}}
 " Conceal {{{
 set conceallevel=2
-hi Conceal ctermbg=bg guibg=bg ctermfg=fg guibg=bg
+if has("gui_running")
+  hi Conceal guibg=bg guifg=bg
+else
+  hi Conceal ctermbg=bg ctermfg=bg
+endif
 " }}}
 
 " Source the vimrc file after saving it
