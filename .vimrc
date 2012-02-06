@@ -230,7 +230,7 @@ map <leader>h2 yypVr-o<CR><Esc>
 set conceallevel=2
 if has("gui_running")
   hi Conceal guibg=bg guifg=bg
-else
+elseif &t_Co > 16
   hi Conceal ctermbg=bg ctermfg=bg
 endif
 " }}}
