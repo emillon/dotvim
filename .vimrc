@@ -111,6 +111,20 @@ ab µem —
 ab µnotin ∉
 
 "}}}
+" Switch between interface and implementation {{{
+" http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
+
+function! SwitchSourceHeader()
+  if (expand ("%:e") == "ml")
+    find %:t:r.mli
+  else
+    find %:t:r.ml
+  endif
+endfunction
+
+nmap ,s :call SwitchSourceHeader()<CR>
+
+" }}}
 "}}}
 " Language support {{{
 " Vala {{{
