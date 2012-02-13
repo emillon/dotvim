@@ -162,6 +162,9 @@ au BufRead,BufNewFile *.asm set syntax=nasm
 au BufRead,BufNewFile *.mako  setfiletype mako
 au BufRead,BufNewFile *.asciidoc  setfiletype asciidoc
 "}}}
+" ZSH {{{
+au BufRead,BufNewfile ~/.zsh.d/* setfiletype zsh
+"}}}
 "}}}
 " Status line {{{
 " Always keep the title
