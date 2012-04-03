@@ -155,6 +155,7 @@ au BufRead,BufNewFile *.cpp set sw=4 sts=4
 "}}}
 " LaTeX {{{
 let g:tex_conceal='adgms'
+autocmd BufRead,BufNewFile *.cls setlocal filetype=plaintex
 " }}}
 " Misc. languages {{{
 au BufRead,BufNewFile *.mail setfiletype mail
