@@ -245,7 +245,6 @@ map <leader>h2 yypVr-o<CR><Esc>
 
 " }}}
 " Conceal {{{
-set conceallevel=2
 if has("gui_running")
   hi Conceal guibg=bg guifg=bg
 elseif &t_Co > 16
