@@ -21,6 +21,7 @@ set textwidth=80
 set mouse=a
 set softtabstop=2
 set shiftwidth=2
+set shiftround
 set title
 set modeline
 set wildmenu
