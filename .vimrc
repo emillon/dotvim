@@ -264,8 +264,8 @@ endif
 set listchars=tab:▸\ ,eol:¬,trail:☠
 nmap <leader>l :set list!<CR>
 
-" <leader>c toggles spellchecker
-nmap <leader>c :set spell!<CR>
+" <leader>ss toggles spellchecker
+nmap <leader>ss :set spell!<CR>
 
 " Unicode separator
 set fillchars=vert:│
