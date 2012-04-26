@@ -15,6 +15,7 @@ endif
 " Indent, etc
 set expandtab
 set autoindent
+set nojoinspaces
 set encoding=utf8
 set smarttab
 set textwidth=80
