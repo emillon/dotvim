@@ -158,6 +158,11 @@ au BufRead,BufNewFile *.cpp set sw=4 sts=4
 " LaTeX {{{
 let g:tex_conceal='adgms'
 autocmd BufRead,BufNewFile *.cls setlocal filetype=plaintex
+
+" Section jumps (should probably be an autocmd)
+map <silent> ]l :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
+map <silent> [l :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
+
 " }}}
 " Misc. languages {{{
 au BufRead,BufNewFile *.mail setfiletype mail
