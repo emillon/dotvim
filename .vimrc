@@ -36,6 +36,8 @@ if has('xterm_clipboard') && has('unnamedplus')
   set clipboard=unnamed,unnamedplus,exclude:cons\|linux
 endif
 
+set showcmd
+
 " Search {{{
 set ignorecase
 set smartcase
