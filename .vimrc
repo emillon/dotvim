@@ -285,3 +285,9 @@ set printoptions+=syntax:y,header:0
 
 " Prevent accidental editing of patch .orig files
 autocmd BufRead *.orig set readonly
+
+" vim-pad {{{
+let g:pad_dir='~/pad'
+let g:pad_use_default_mappings = 0
+let g:pad_default_format = "pandoc"
+" }}}
