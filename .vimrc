@@ -27,6 +27,7 @@ set modeline
 set wildmenu
 
 set guioptions=
+set guicursor=a:blinkon0
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
