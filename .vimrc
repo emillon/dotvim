@@ -28,6 +28,7 @@ set wildmenu
 
 set guioptions=
 set guicursor=a:blinkon0
+set guifont=Inconsolata\ Medium\ 12
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
