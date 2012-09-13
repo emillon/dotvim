@@ -54,6 +54,7 @@ map <F3> :source ~/.vim_session <cr>     " And load session with F3
 set pastetoggle=<F12>
 inoremap jk <esc>
 inoremap <esc> <nop>
+inoremap <A-Space> <Space>
 "}}}
 " Open file in same directory as current file {{{
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -270,7 +271,7 @@ endif
 
 
 " <leader>l toggles non-printable characters
-set listchars=tab:▸\ ,eol:¬,trail:☠
+set listchars=tab:▸\ ,eol:¬,trail:☠,nbsp:~
 nmap <leader>l :set list!<CR>
 
 " <leader>ss toggles spellchecker
