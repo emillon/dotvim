@@ -252,8 +252,8 @@ nmap <leader>sbox VypVr─yykkpI╭ji│ji╰kk$a╮ja│ja╯^j
 " b.d.o mdwn link
 map <leader>bdo yawi[$a](http://bugs.debian.org/pa)
 
-map <leader>h1 yypVr=o<CR><Esc>
-map <leader>h2 yypVr-o<CR><Esc>
+map <leader>h1 yypVr=
+map <leader>h2 yypVr-
 
 " }}}
 " Conceal {{{
