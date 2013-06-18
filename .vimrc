@@ -19,8 +19,8 @@ set encoding=utf8
 set smarttab
 set textwidth=80
 set mouse=a
-set softtabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 set title
 set modeline
 set wildmenu
