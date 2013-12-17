@@ -176,6 +176,9 @@ au BufRead,BufNewFile *.asciidoc  setfiletype asciidoc
 " ZSH {{{
 au BufRead,BufNewfile ~/.zsh.d/* setfiletype zsh
 "}}}
+" Scade/lustre {{{
+au BufRead,BufNewfile *.scade setfiletype lustre
+"}}}
 "}}}
 " Status line {{{
 " Always keep the title
