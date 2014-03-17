@@ -216,8 +216,8 @@ set wildignore+=*.hi
 " 'Long' shortcuts {{{
 
 " Unicode boxes
-nmap <leader>box VypVr═yykkpI╔ji║ji╚kk$a╗ja║ja╝^j
-nmap <leader>sbox VypVr─yykkpI╭ji│ji╰kk$a╮ja│ja╯^j
+nnoremap <leader>box VypVr═yykkpI╔ji║ji╚kk$a╗ja║ja╝^j
+nnoremap <leader>sbox VypVr─yykkpI╭ji│ji╰kk$a╮ja│ja╯^j
 
 " b.d.o mdwn link
 map <leader>bdo yawi[$a](http://bugs.debian.org/pa)
