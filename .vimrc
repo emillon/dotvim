@@ -37,6 +37,7 @@ if has('xterm_clipboard') && has('unnamedplus')
 endif
 
 set showcmd
+set lazyredraw
 
 " Search {{{
 set ignorecase
