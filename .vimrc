@@ -134,9 +134,6 @@ nmap ,s :call SwitchSourceHeader()<CR>
 "}}}
 " Language support {{{
 " Markdown {{{
-
-autocmd BufEnter *.mdwn set filetype=pdc
-
 map <leader>p :!pandoc -t latex<CR>
 
 let g:user_zen_settings = {'mkd' : { 'extends' : 'html' }, 'mdwn' : { 'extends' : 'html' } }
@@ -144,7 +141,6 @@ let g:user_zen_settings = {'mkd' : { 'extends' : 'html' }, 'mdwn' : { 'extends' 
 "}}}
 " LaTeX {{{
 let g:tex_conceal='adgms'
-autocmd BufRead,BufNewFile *.cls setlocal filetype=plaintex
 
 " Section jumps (should probably be an autocmd)
 map <silent> ]l :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
