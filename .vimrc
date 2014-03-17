@@ -166,9 +166,6 @@ map <silent> ]l :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 map <silent> [l :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 
 " }}}
-" ZSH {{{
-au BufRead,BufNewfile ~/.zsh.d/* setfiletype zsh
-"}}}
 "}}}
 " Status line {{{
 " Always keep the title
