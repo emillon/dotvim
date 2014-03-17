@@ -136,8 +136,6 @@ nmap ,s :call SwitchSourceHeader()<CR>
 " Vala {{{
 autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala            setfiletype vala
-au BufRead,BufNewFile *.vapi            setfiletype vala
 " }}}
 " Markdown {{{
 
@@ -168,17 +166,8 @@ map <silent> ]l :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 map <silent> [l :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 
 " }}}
-" Misc. languages {{{
-au BufRead,BufNewFile *.mail setfiletype mail
-au BufRead,BufNewFile *.asm set syntax=nasm
-au BufRead,BufNewFile *.mako  setfiletype mako
-au BufRead,BufNewFile *.asciidoc  setfiletype asciidoc
-"}}}
 " ZSH {{{
 au BufRead,BufNewfile ~/.zsh.d/* setfiletype zsh
-"}}}
-" Scade/lustre {{{
-au BufRead,BufNewfile *.scade setfiletype lustre
 "}}}
 "}}}
 " Status line {{{
