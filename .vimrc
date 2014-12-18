@@ -258,3 +258,6 @@ set printoptions+=syntax:y,header:0
 
 " Prevent accidental editing of patch .orig files
 autocmd BufRead *.orig set readonly
+
+" Find non-ASCII
+nnoremap <leader>a /[^\x00-\x7F]<CR>
