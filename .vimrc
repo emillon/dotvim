@@ -1,8 +1,21 @@
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'tomasr/molokai'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rust-lang/rust.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mintplant/vim-literate-coffeescript'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'blue-prawn/ocp-build-vim-syntax'
+Plugin 'tpope/vim-surround'
+call vundle#end()
 filetype plugin on
 filetype indent on
 syntax enable
 
-call pathogen#infect()
 
 " Colors
 set background=dark
