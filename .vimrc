@@ -12,6 +12,9 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'blue-prawn/ocp-build-vim-syntax'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 call vundle#end()
 filetype plugin on
 filetype indent on
