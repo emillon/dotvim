@@ -11,6 +11,7 @@ Plugin 'mintplant/vim-literate-coffeescript'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'blue-prawn/ocp-build-vim-syntax'
 Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
 call vundle#end()
 filetype plugin on
 filetype indent on
