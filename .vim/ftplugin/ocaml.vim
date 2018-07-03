@@ -1,1 +1,22 @@
 setlocal sw=2
+map <buffer> <LocalLeader>y :MerlinYankLatestType<return>
+nmap <LocalLeader>r <Plug>(MerlinRename)
+
+function! ExtractLocalOpen()
+    let mod = expand("<cword>")
+    execute "normal! Vap\<esc>"
+    execute "'<,'>s/" . mod. "\.//g"
+    '<
+    execute "normal! olet open " . mod . " in\<esc>"
+endfunction
+
+nmap <LocalLeader>o :call ExtractLocalOpen()<cr>
+
+function! ExtractLocalVar()
+    call inputsave()
+    let var = input('Variable name: ')
+    call inputrestore()
+    execute "normal! gvxOlet " . var . " = \<esc>pa in\<esc>`<i" . var
+endfunction
+
+vmap <LocalLeader>x :call ExtractLocalVar()<cr>
