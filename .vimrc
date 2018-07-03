@@ -1,13 +1,13 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rust-lang/rust.vim'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'mintplant/vim-literate-coffeescript'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'blue-prawn/ocp-build-vim-syntax'
 Plugin 'tpope/vim-surround'
@@ -15,11 +15,34 @@ Plugin 'mattn/emmet-vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+Plugin 'scrooloose/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'lepture/vim-jinja'
+Plugin 'tfnico/vim-gradle'
+Plugin 'let-def/ocp-indent-vim'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'ElmCast/elm-vim'
+Plugin 'rgrinberg/vim-ocaml'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vito-c/jq.vim'
+Plugin 'posva/vim-vue'
+Plugin 'janko-m/vim-test'
+Plugin 'tsiemens/vim-aftercolors'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
+Plugin 'rr-/vim-hexdec'
 call vundle#end()
 filetype plugin on
 filetype indent on
 syntax enable
 
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+let g:syntastic_ocaml_checkers = ['merlin']
+let g:syntastic_always_populate_loc_list = 1
 
 " Colors
 set background=dark
@@ -229,6 +252,8 @@ let g:netrw_sort_sequence= '[\/]$,*,\.ml,\.mli,\.bak$,\.o$,\.h$,\.info$,\.swp$,\
 set wildignore=*.o
 set wildignore+=*.cmx,*.cmo,*.cmi
 set wildignore+=*.hi
+set wildignore+=*.prof
+set wildignore+=node_modules
 " }}}
 " 'Long' shortcuts {{{
 
@@ -264,6 +289,9 @@ nmap <leader>l :set list!<CR>
 " <leader>ss toggles spellchecker
 nmap <leader>ss :set spell!<CR>
 
+" search for visually hightlighted text
+vnoremap <leader>r y<ESC>/\V<c-r>"<CR>
+
 " Unicode separator
 set fillchars=vert:│
 set showbreak=↪
@@ -278,3 +306,8 @@ autocmd BufRead *.orig set readonly
 
 " Find non-ASCII
 nnoremap <leader>a /[^\x00-\x7F]<CR>
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
