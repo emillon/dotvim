@@ -20,3 +20,8 @@ function! ExtractLocalVar()
 endfunction
 
 vmap <LocalLeader>x :call ExtractLocalVar()<cr>
+
+" dune
+nmap <LocalLeader>dt :! dune runtest<cr>
+nmap <LocalLeader>dp :! dune promote<cr>
+nmap <LocalLeader>db :! dune build<cr>
