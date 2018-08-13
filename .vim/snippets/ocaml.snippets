@@ -1,0 +1,20 @@
+version 1
+# assert equal
+snippet ae
+	assert_equal
+	  ~ctxt
+	  ~cmp:[%eq: ${1:type}]
+	  ~printer:[%show: ${1:type}]
+	  expected
+	  got
+# test assert equal
+snippet tae
+	let test ${1:x} expected ctxt =
+	  let got = ${2:f} ${1:x} in
+	  assert_equal
+	    ~ctxt
+	    ~cmp:[%eq: ${3:type}]
+	    ~printer:[%show: ${3:type}]
+	    expected
+	    got
+	in
