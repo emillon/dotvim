@@ -34,6 +34,7 @@ Plugin 'tsiemens/vim-aftercolors'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'rr-/vim-hexdec'
+Plugin 'sbdchd/neoformat'
 call vundle#end()
 filetype plugin on
 filetype indent on

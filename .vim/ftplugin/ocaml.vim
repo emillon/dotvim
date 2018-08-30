@@ -25,3 +25,8 @@ vmap <LocalLeader>x :call ExtractLocalVar()<cr>
 nmap <LocalLeader>dt :! dune runtest<cr>
 nmap <LocalLeader>dp :! dune promote<cr>
 nmap <LocalLeader>db :! dune build<cr>
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
