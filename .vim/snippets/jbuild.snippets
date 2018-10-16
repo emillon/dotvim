@@ -1,0 +1,16 @@
+version 1
+# executable
+snippet exec
+	(executable
+	 (name $1)
+	)
+snippet lib
+	(library
+	 (name $1)
+	)
+snippet testu
+	(test
+	 (name test_all)
+	 (libraries oUnit $1)
+	 (preprocess (pps ppx_deriving.std))
+	)
