@@ -26,7 +26,9 @@ nmap <LocalLeader>dt :! dune runtest<cr>
 nmap <LocalLeader>dp :! dune promote<cr>
 nmap <LocalLeader>db :! dune build<cr>
 
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+"let g:neoformat_enabled_ocaml = []
+"augroup fmt
+"    autocmd!
+"    autocmd BufWritePre * undojoin | Neoformat
+"augroup END
+nmap <LocalLeader>f :Neoformat ocamlformat<cr>

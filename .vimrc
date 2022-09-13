@@ -1,49 +1,66 @@
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tomasr/molokai'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'jceb/vim-orgmode'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rust-lang/rust.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'blue-prawn/ocp-build-vim-syntax'
-Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'scrooloose/syntastic'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'lepture/vim-jinja'
-Plugin 'tfnico/vim-gradle'
-Plugin 'let-def/ocp-indent-vim'
-Plugin 'Shutnik/jshint2.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'ElmCast/elm-vim'
-Plugin 'rgrinberg/vim-ocaml'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'vito-c/jq.vim'
-Plugin 'posva/vim-vue'
-Plugin 'janko-m/vim-test'
-Plugin 'tsiemens/vim-aftercolors'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'rr-/vim-hexdec'
-Plugin 'sbdchd/neoformat'
-call vundle#end()
-filetype plugin on
-filetype indent on
+call plug#begin('~/.vim/plugged')
+Plug 'tomasr/molokai'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-speeddating'
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'rust-lang/rust.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'blue-prawn/ocp-build-vim-syntax'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'scrooloose/syntastic'
+Plug 'chase/vim-ansible-yaml'
+Plug 'lepture/vim-jinja'
+Plug 'tfnico/vim-gradle'
+Plug 'Shutnik/jshint2.vim'
+Plug 'godlygeek/tabular'
+Plug 'ElmCast/elm-vim'
+Plug 'let-def/ocp-indent-vim'
+Plug 'rgrinberg/vim-ocaml'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-unimpaired'
+Plug 'vito-c/jq.vim'
+Plug 'posva/vim-vue'
+Plug 'janko-m/vim-test'
+Plug 'tsiemens/vim-aftercolors'
+Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
+Plug 'rr-/vim-hexdec'
+Plug 'sbdchd/neoformat'
+Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-emoji'
+Plug 'brianclements/vim-lilypond'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-markdown'
+Plug 'airblade/vim-gitgutter'
+Plug 'MagnusS/okra'
+Plug 'kisom/eink.vim'
+call plug#end()
 syntax enable
 
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+let g:snipMate = { 'snippet_version' : 1 }
+
+let g:opamshare = substitute(system('opam var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 let g:syntastic_ocaml_checkers = ['merlin']
+
 let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+autocmd BufRead,BufNewFile ~/src/okr-updates/* let g:syntastic_markdown_checkers = ['okra']
+autocmd BufRead,BufNewFile ~/src/tarides-admin/* let g:syntastic_markdown_checkers = ['okra']
 
 " Colors
 set background=dark
@@ -63,7 +80,7 @@ set mouse=a
 set softtabstop=4
 set shiftwidth=4
 set title
-set modeline
+set nomodeline
 set wildmenu
 
 set guioptions=
@@ -94,7 +111,6 @@ map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
 map <F3> :source ~/.vim_session <cr>     " And load session with F3
 set pastetoggle=<F12>
 inoremap jk <esc>
-inoremap <esc> <nop>
 inoremap <A-Space> <Space>
 "}}}
 " Open file in same directory as current file {{{
@@ -103,47 +119,7 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
-" Nops (arrows etc) {{{
-
-imap <c-up>     <Nop>
-imap <c-down>   <Nop>
-imap <c-left>   <Nop>
-imap <c-right>  <Nop>
-map  <c-up>     <Nop>
-map  <c-down>   <Nop>
-map  <c-left>   <Nop>
-map  <c-right>  <Nop>
-
-imap <up>       <Nop>
-imap <down>     <Nop>
-imap <left>     <Nop>
-imap <right>    <Nop>
-map  <up>       <Nop>
-map  <down>     <Nop>
-map  <left>     <Nop>
-map  <right>    <Nop>
-
-imap <pageup>   <nop>
-imap <pagedown> <nop>
-imap <home>     <nop>
-imap <end>      <nop>
-map  <pageup>   <nop>
-map  <pagedown> <nop>
-map  <home>     <nop>
-map  <end>      <nop>
-
-imap <del>      <nop>
-imap <c-del>    <nop>
-imap <m-del>    <nop>
-map  <del>      <nop>
-map  <c-del>    <nop>
-map  <m-del>    <nop>
-
-imap <c-pageup>     <nop>
-imap <c-pagedown>   <nop>
-map  <c-pageup>     <nop>
-map  <c-pagedown>   <nop>
-
+" Nops (etc) {{{
 map K <nop>
 map <F1> <nop>
 " }}}
@@ -180,14 +156,6 @@ map <leader>p :!pandoc -t latex<CR>
 let g:user_zen_settings = {'mkd' : { 'extends' : 'html' }, 'mdwn' : { 'extends' : 'html' } }
 
 "}}}
-" LaTeX {{{
-let g:tex_conceal='adgms'
-
-" Section jumps (should probably be an autocmd)
-map <silent> ]l :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
-map <silent> [l :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
-
-" }}}
 "}}}
 " Status line {{{
 " Always keep the title
@@ -312,3 +280,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
+
+nnoremap <silent> <C-p> :GFiles<CR>
+
+inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /home/etienne/.okrs')
